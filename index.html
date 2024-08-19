@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon_192.png" />
     <title>현대그룹</title>
-    <!-- seo -->
+    <!-- seo적용 -->
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -20,7 +20,7 @@
     <meta property="og:description" content="현대그룹 꿈과 희망의 현대가 움직이면 세계가 움직입니다." />
     <meta property="og:image" content="https://www.hyundaigroup.com/upload/mainbanner/main02.png" />
     <meta property="og:url" content="https://www.hyundaigroup.com" />
-    <!-- js 브라우저 호환형 -->
+    <!-- js적용 브라우저 호환용 -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
     <![endif]-->
@@ -36,12 +36,14 @@
     <!-- css -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/visual.css" />
     <!-- js -->
     <script src="js/script.js"></script>
+    <script src="js/visual.js"></script>
   </head>
   <body>
     <!-- 안내창 -->
-    <!-- 전체 레이아웃 -->
+    <!-- 전체레이아웃 -->
     <div class="wrap">
       <!-- 주메뉴 -->
       <nav class="nav">
@@ -91,7 +93,7 @@
             <img src="images/logo.png" alt="현대그룹" class="logo-w" />
             <img src="images/logo2.png" alt="현대그룹" class="logo-g" />
           </a>
-          <!-- 상단 오른쪽 영역 -->
+          <!-- 상단 오른쪽 -->
           <div class="header-right">
             <a href="#" class="metaworld">
               <img src="images/metaverse.png" alt="메타월드" />
@@ -102,52 +104,53 @@
                 <li><a href="#">ENG</a></li>
               </ul>
             </div>
-            <button class="bt-menu">MENU</button>
+            <button class="bt-menu">menu</button>
           </div>
         </div>
       </header>
-       <!-- 비주얼 -->
-       <section class="visual">
+      <!-- 비주얼 -->
+      <!-- 비주얼 -->
+      <section class="visual">
         <!-- 스와이퍼 -->
         <div class="swiper swVisual">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <video>
+              <video muted>
                 <source src="./assets/movie/web_main_video_01.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="swiper-slide">
-              <video>
+              <video muted>
                 <source src="./assets/movie/web_main_video_02.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="swiper-slide">
-              <video>
+              <video muted>
                 <source src="./assets/movie/web_main_video_03.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="swiper-slide">
-              <video>
+              <video muted>
                 <source src="./assets/movie/web_main_video_04.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="swiper-slide">
-              <video>
+              <video muted>
                 <source src="./assets/movie/web_main_video_05.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="swiper-slide">
-              <video>
+              <video muted>
                 <source src="./assets/movie/web_main_video_06.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="swiper-slide">
-              <video>
+              <video muted>
                 <source src="./assets/movie/web_main_video_07.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="swiper-slide">
-              <video>
+              <video muted>
                 <source src="./assets/movie/web_main_video_08.mp4" type="video/mp4" />
               </video>
             </div>
@@ -191,12 +194,159 @@
           </ul>
         </div>
       </section>
+
       <!-- 뉴스 -->
-      <section class="news"></section>
-      <!-- 비지니스 -->
-      <section class="besiness"></section>
+      <section class="news">
+        <div class="inner">
+          <div class="news-left">
+            <div class="news-top">
+              <h2 class="news-logo" data-aos="fade-up" data-aos-duration="900" data-offset="-500">
+                  HYUNDAI
+              </h2>
+              <p class="news-desc" data-aos="fade-up" data-aos-duration="900" data-offset="-500"
+                  data-aos-delay="200">
+                  현대그룹은 여러분과 꿈과 희망을<br />
+                  반드시 실현시켜 나갈 것입니다.
+              </p>
+              <a href="#" class="news-more" data-aos="fade-up" data-aos-duration="900" data-offset="-500"
+                  data-aos-delay="300">view more</a>
+          </div>
+          <div class="news-bottom">
+              <img src="images/main01.png" alt="뉴스사진" class="news-photo" data-aos="fade-up"
+                  data-aos-duration="900" data-offset="-500" data-aos-delay="400" />
+          </div>
+
+        </div>
+        <div class="news-right">
+          <a href="#" class="news-link">
+            <img src="images/main02.png" alt="이미지">
+          </a>
+        </div>
+        
+      </section>
+      <!-- 비즈니스 -->
+      <section class="business">
+        <div class="swiper swBusiness">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                  <div class="business-box business-img-1">
+                      <!-- 슬라이드 텍스트내용 -->
+                      <div class="inner">
+                          <div class="business-txt">
+                              <h3>BUSINESS</h3>
+                              <p>
+                                  Sanctuary For The Senses
+                                  <span>에이블현대호텔 앤 리조트</span>
+                              </p>
+                              <a href="#">VIEW MORE</a>
+                              <em>서울 도심에서는 10분 거리의 고요한
+                                  남산,<br />천혜의 자연환경 속에 자리
+                                  잡은 한국 최초의 도심형 리조트</em>
+                          </div>
+                      </div>
+                      <!-- //슬라이드 텍스트내용 -->
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="business-box business-img-2">
+                      <!-- 슬라이드 텍스트내용 -->
+                      <div class="inner">
+                          <div class="business-txt">
+                              <h3>BUSINESS</h3>
+                              <p>
+                                  Sanctuary For The Senses
+                                  <span>에이블현대호텔 앤 리조트</span>
+                              </p>
+                              <a href="#">VIEW MORE</a>
+                              <em>서울 도심에서는 10분 거리의 고요한
+                                  남산,<br />천혜의 자연환경 속에 자리
+                                  잡은 한국 최초의 도심형 리조트</em>
+                          </div>
+                      </div>
+                      <!-- //슬라이드 텍스트내용 -->
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="business-box business-img-3">
+                      <!-- 슬라이드 텍스트내용 -->
+                      <div class="inner">
+                          <div class="business-txt">
+                              <h3>BUSINESS</h3>
+                              <p>
+                                  Sanctuary For The Senses
+                                  <span>에이블현대호텔 앤 리조트</span>
+                              </p>
+                              <a href="#">VIEW MORE</a>
+                              <em>서울 도심에서는 10분 거리의 고요한
+                                  남산,<br />천혜의 자연환경 속에 자리
+                                  잡은 한국 최초의 도심형 리조트</em>
+                          </div>
+                      </div>
+                      <!-- //슬라이드 텍스트내용 -->
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="business-box business-img-4">
+                      <!-- 슬라이드 텍스트내용 -->
+                      <div class="inner">
+                          <div class="business-txt">
+                              <h3>BUSINESS</h3>
+                              <p>
+                                  Sanctuary For The Senses
+                                  <span>에이블현대호텔 앤 리조트</span>
+                              </p>
+                              <a href="#">VIEW MORE</a>
+                              <em>서울 도심에서는 10분 거리의 고요한
+                                  남산,<br />천혜의 자연환경 속에 자리
+                                  잡은 한국 최초의 도심형 리조트</em>
+                          </div>
+                      </div>
+                      <!-- //슬라이드 텍스트내용 -->
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="business-box business-img-5">
+                      <!-- 슬라이드 텍스트내용 -->
+                      <div class="inner">
+                          <div class="business-txt">
+                              <h3>BUSINESS</h3>
+                              <p>
+                                  Sanctuary For The Senses
+                                  <span>에이블현대호텔 앤 리조트</span>
+                              </p>
+                              <a href="#">VIEW MORE</a>
+                              <em>서울 도심에서는 10분 거리의 고요한
+                                  남산,<br />천혜의 자연환경 속에 자리
+                                  잡은 한국 최초의 도심형 리조트</em>
+                          </div>
+                      </div>
+                      <!-- //슬라이드 텍스트내용 -->
+                  </div>
+              </div>
+              <div class="swiper-slide">
+                  <div class="business-box business-img-6">
+                      <!-- 슬라이드 텍스트내용 -->
+                      <div class="inner">
+                          <div class="business-txt">
+                              <h3>BUSINESS</h3>
+                              <p>
+                                  Sanctuary For The Senses
+                                  <span>에이블현대호텔 앤 리조트</span>
+                              </p>
+                              <a href="#">VIEW MORE</a>
+                              <em>서울 도심에서는 10분 거리의 고요한
+                                  남산,<br />천혜의 자연환경 속에 자리
+                                  잡은 한국 최초의 도심형 리조트</em>
+                          </div>
+                      </div>
+                      <!-- //슬라이드 텍스트내용 -->
+                  </div>
+              </div>
+          </div>
+      </div>
+      </section>
       <!-- 미디어 -->
-      <section class="media"></section>
+      <section class="mcenter"></section>
       <!-- 하단 -->
       <footer class="footer"></footer>
     </div>
