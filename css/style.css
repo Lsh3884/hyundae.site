@@ -3,9 +3,21 @@
 @import url("header.css");
 @import url("visual.css");
 @import url("news.css");
-@import url("besiness.css");
+@import url("business.css");
 @import url("mecenter.css");
 @import url("footer.css");
+@import url("responsive.css");
+/* 스크롤바 추가 기능 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 12px;
+  background-color: rgba(137, 115, 88, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: blue;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +44,7 @@ body {
   color: #191919;
   word-break: keep-all;
   /* min-width: 780px; */
-  background-color: pink;
+  /* background-color: pink; */
 }
 /* 안내창 */
 /* 공통영역 */

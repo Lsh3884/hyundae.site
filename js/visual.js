@@ -1,92 +1,102 @@
 window.addEventListener("load", function () {
-  AOS.init()
-  // 비디오 항목 체크한다 (vedio태그로 파악)
+  AOS.init();
+  // 비디오 항목 체크한다. (video태그로 파악)
   // 모든 비디오 태그를 변수에 저장
   let videos = this.document.querySelectorAll(".swVisual video");
-  // console.log(videos);
-  //비디오시간체크
-  let videoTimeArr = []; //비디오재생시간을 보관할 배열을 생성
-  //비디오 재생시간을 배열에 저장하는 반복문
-  videos.forEach((video, index) => {
-    // console.log(videos,index);
-    // console.log(videos);
-    // console.log(videos[0]);
-    // console.log(videos[0].duration);
-    // console.log(videos[1].duration);
+  let videoTimeArr = [];
 
-    //Math.ceil()비디오 재생시간을 올림하여 가장 가까운 정수로 변환
+  videos.forEach((video, index) => {
     videoTimeArr[index] = Math.ceil(video.duration);
+    console.log(videoTimeArr);
   });
-  // console.log(videoTimeArr);
-  // 첫번째 비디오 자동 실행
+
   let videoIndex = 0;
-  videos[videoIndex].play();
-  // 비주얼 슬라이드
-  //슬라이드 초기화
-  const swVisual = new Swiper(".swVisual", {
-    Loop: true,
-  });
-  //슬라이드 변경 이벤트 처리
-  swVisual.on("slideChange", function () {
-    // console.log("슬라이드 교체");
-    // 진행중인 비디오 정지
-    videos[videoIndex].pause();
-    //다음 화면에 보이는 swiper슬라이드 번호
-    // console.log(swVisual.activeIndex);
-    // console.log(swVisual.realIndex);
-    videoIndex = swVisual.realIndex;
-    // console.log(videoIndex);
-    videos[videoIndex].play();
-  });
-  //비디오 영상이 플레이가 끝나면 다음 슬라이드로 이동
-  //늘어나는 흰색bar
-  let bars = this.document.querySelectorAll(".bar");
-  // console.log(bars);
-  //늘어나는 길이를 위한 값(최대 100)
-  let barScaleW = 0;
-  //타이머설정
   let videoTimer;
-  //   비디오 ㅌㅏ이머를 설정하고 초기화 하는 함수를 정의하고 호출
-  videoReset();
+
+  const swVisual = new Swiper(".swVisual", {
+    loop: true,
+    on: {
+      slideChange: function () {
+        // 현재 재생 중인 비디오를 멈춤
+        videos[videoIndex].pause();
+
+        // 비디오 인덱스 업데이트
+        videoIndex = swVisual.realIndex;
+
+        // 비디오 타이머와 진행 바를 초기화
+        videoReset();
+
+        // 새로운 슬라이드의 비디오를 재생
+        videos[videoIndex].play();
+      },
+      reachEnd: function () {
+        // 슬라이드가 끝까지 도달했을 때 첫 번째 슬라이드로 이동
+        // setTimeout 함수는 코드 실행에 지연을 주기 위해 사용되며, 여기서는 17000밀리초(즉 17초) 
+        // 후에 슬라이드를 첫 번째 슬라이드로 이동시키고, 
+        // 비디오를 초기화한 후 재생하는 동작이 이루어집니다.
+        setTimeout(() => {
+          swVisual.slideTo(0);
+          videos[videoIndex].pause();
+          videoIndex = 0;
+          videoReset();
+          videos[videoIndex].play();
+        }, 17000);
+      },
+    },
+  });
+
   function videoReset() {
-    barScaleW = 0;
-    // 최초의 바를 초기화
+    let bars = this.document.querySelectorAll(".bar");
+    let barScaleW = 0;
+    
     bars.forEach(function (bar) {
       bar.style.width = `${barScaleW}%`;
     });
-    //활설화될 바 클래스 선택
+
     let activeBar = bars[videoIndex];
-    // console.log(activeBar);
-    // setTimeout: 1번 실행 clearTimeout()
-    // setIntever: 시간마다 연속실행 clearintevar()
     clearInterval(videoTimer);
     let videoTime = videoTimeArr[videoIndex];
+
     videoTimer = setInterval(() => {
       barScaleW++;
       activeBar.style.width = `${barScaleW}%`;
-      // console.log(barScaleW);
-      //   바의 길이가 100% 이상이 되면 실행한다
       if (barScaleW >= 100) {
+        swVisual.slideNext();
         clearInterval(videoTimer);
         videoReset();
-        swVisual.slideNext();
       }
     }, videoTime * 10);
   }
-  const visualControl = this.document.querySelectorAll(".visual-control > li");
-visualControl.forEach(function (item, index) {
-    item.addEventListener("click", function(){
-        videoIndex = index
-        swVisual.slideTo(videoIndex)
-    })
+
+  videoReset();
+
+  const visualControlLi = this.document.querySelectorAll(".visual-control > li");
+  visualControlLi.forEach(function (item, index) {
+    item.addEventListener("click", function () {
+      // 현재 재생 중인 비디오를 멈춤
+      videos[videoIndex].pause();
+
+      // 슬라이드 클릭으로 이동할 인덱스 업데이트
+      videoIndex = index;
+
+      // 슬라이드를 클릭한 인덱스로 이동
+      swVisual.slideTo(videoIndex);
+
+      // 슬라이드 이동이 완료된 후 비디오 재생
+      swVisual.once('slideChangeTransitionEnd', function () {
+        videoReset();
+        videos[videoIndex].play();
+      });
+    });
   });
-  // 비지니스 스와이퍼================
-  const swBusiness = new Swiper(".swBusiness" , {
+
+  // business스와이퍼
+  const swBusiness = new Swiper(".swBusiness", {
     loop: true,
     speed: 500,
     autoplay: {
       delay: 2500,
       disableOnInteraction: false,
     },
-  })
+  });
 });
